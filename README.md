@@ -2,6 +2,9 @@
 
 This project contains machine learning classifiers for predicting flower types and Titanic survival.
 
+--
+![demo](https://github.com/elguarir/flower-classification-app/assets/120427922/29d36222-efba-4d57-8e15-7de8837dfb7a)
+
 ## Project Structure
 
 The project is divided into two main parts: the backend and the frontend.
@@ -19,9 +22,6 @@ The backend server provides endpoints for training the classifiers and making pr
 ### Frontend
 
 The frontend is a React application written in TypeScript. It provides a user interface for interacting with the classifiers.
-
-## Demo
-![demo](https://github.com/elguarir/flower-classification-app/assets/120427922/29d36222-efba-4d57-8e15-7de8837dfb7a)
 
 ## Getting Started
 
