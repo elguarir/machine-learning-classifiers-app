@@ -21,8 +21,7 @@ The backend server provides endpoints for training the classifiers and making pr
 The frontend is a React application written in TypeScript. It provides a user interface for interacting with the classifiers.
 
 ## Demo
-
-![Demo](demo.png)
+![demo](https://github.com/elguarir/flower-classification-app/assets/120427922/29d36222-efba-4d57-8e15-7de8837dfb7a)
 
 ## Getting Started
 
