@@ -2,7 +2,6 @@
 
 This project contains machine learning classifiers for predicting flower types and Titanic survival.
 
---
 ![demo](https://github.com/elguarir/flower-classification-app/assets/120427922/29d36222-efba-4d57-8e15-7de8837dfb7a)
 
 ## Project Structure
