@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 from flower_classifier import FlowerClassifierTrees
 from flower_classifier import FlowerClassifierRandomForest
+from titanic_classifier import TitanicSurvivalClassifier
 from flask_cors import CORS
 
 clfTrees = FlowerClassifierTrees()
 clfForest = FlowerClassifierRandomForest()
+titanic_classifier = TitanicSurvivalClassifier()
 app = Flask(__name__)
 CORS(app)
 
@@ -73,6 +75,39 @@ def classify_flower_forest():
     print("prediction", prediction)
 
     return jsonify({"class": prediction})
+
+
+# titanic classifier
+def map_sex(sex):
+    return 0 if sex.lower() == "male" else 1
+
+
+@app.route("/titanic/train", methods=["GET"])
+def train_titanic():
+    titanic_classifier.train()
+    accuracy = titanic_classifier.accuracy
+    titanic_classifier.save_model()
+    return jsonify(
+        {"message": "Model trained and saved successfully.", "accuracy": accuracy}
+    )
+
+
+@app.route("/titanic/load", methods=["GET"])
+def load_titanic():
+    titanic_classifier.load_model()
+    return jsonify({"message": "Model loaded successfully."})
+
+
+@app.route("/titanic/predict", methods=["POST"])
+def predict_titanic():
+    data = request.get_json()
+    Pclass = float(data["Pclass"])
+    Sex = map_sex(data["Sex"])
+    Age = int(data["Age"])
+    SibSp = float(data["SibSp"])
+    result = titanic_classifier.predict([[Pclass, Sex, Age, SibSp]])[0]
+    result = "Survived" if result == 1 else "Death"
+    return jsonify({"result": result})
 
 
 if __name__ == "__main__":
