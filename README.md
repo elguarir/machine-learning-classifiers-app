@@ -1,6 +1,3 @@
-Sure, here's an updated version of the README with a section for a demo image:
-
-```markdown
 # Machine Learning Classifiers
 
 This project contains machine learning classifiers for predicting flower types and Titanic survival.
